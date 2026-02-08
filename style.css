@@ -39,7 +39,7 @@ body,html {
     gap:16px;
 }
 
-#playerCounter, #computerCounter{
+#playerCounter, #computerCounter, #roundCounter{
     border: 1px solid black;
     padding: 8px;
 }
