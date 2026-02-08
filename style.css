@@ -12,8 +12,19 @@
     overflow:hidden;
 }
 
+img {
+    width: 200px;
+}
+
+.header {
+    display:flex;
+    align-items: center;
+    
+}
+
 button{
     border-radius: 8px;
+    background-color: lightyellow;
     color: black;             
     padding: 12px 24px;
     font-weight: bold;
