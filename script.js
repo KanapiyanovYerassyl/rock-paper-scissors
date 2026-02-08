@@ -1,4 +1,20 @@
+const rockButton = document.querySelector("#rockButton");
+const paperButton = document.querySelector("#paperButton");
+const scissorsButton = document.querySelector("scissorsButton");
+const buttons = document.querySelector(".buttons")
 
+
+buttons.addEventListener("click", (e) = > {
+    let target = e.target;
+    switch (target.id){
+        case "rockButton":
+            return "ROCK";
+        case "paperButton":
+            return "PAPER";
+        case "scissorsButton":
+            return "SCISSORS";
+    }
+});
 
 function getComputerChoice(){
     let value = Math.round(Math.random() * 1000)/10;
@@ -17,11 +33,6 @@ function getComputerChoice(){
 
 }
 
-function getHumanChoise(){
-    
-    return String(prompt("Rock? Paper? Scissors?"));
-    
-}
 
 
 function playRound(humanChoice,computerChoice){
@@ -71,22 +82,11 @@ function playRound(humanChoice,computerChoice){
 
 }
 
-    function playGame(){
+ function playGame(){
         let humanScore = 0;
         let computerScore = 0;
         
-        for (let i = 0; i < 5; i++){
-            let winner = playRound(getHumanChoise(),getComputerChoice());
-
-            if (winner == "human"){
-                humanScore +=1;
-            }else{
-                computerScore +=1;
-            }
-
-
-            alert("Your score is " + humanScore +"\n Computer score is "+ computerScore);
-        }
+        
 
         if (humanScore == computerScore){
             alert("DRAW");
@@ -95,7 +95,10 @@ function playRound(humanChoice,computerChoice){
         }else {
             alert("COMPUTER WINS");
         }
-    }
+}
 
-playGame();
+
+
+
+
 
