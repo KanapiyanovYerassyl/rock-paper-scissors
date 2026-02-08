@@ -18,9 +18,9 @@ let computerCount = 0;
 let roundCounter = 1;
 
 
-buttons.addEventListener("click",getHumanChoice);
+buttons.addEventListener("click",getHumanChoiceAndPlay);
 
-function getHumanChoice(event){
+function getHumanChoiceAndPlay(event){
     let target = event.target;
     switch (target.id){
         case "rockButton":
@@ -46,24 +46,26 @@ function getComputerChoice(){
 
 
 function playRound(humanChoice,computerChoice){
-    
+    if (roundCounter == 5) return;
     if (computerChoice === humanChoice){
         messageWin.textContent = "Its a tie"
         
     }else if(((humanChoice == "ROCK") && (computerChoice == "SCISSORS")) || ((humanChoice == "SCISSORS") && (computerChoice == "PAPER")) || ((humanChoice == "PAPER") && computerChoice == "ROCK")){
-        console.log("You win");
+        
         playerCount+=1;
-        playerCounter.textContent = playerCount;
         messageWin.textContent = `Computer chose ${computerChoice}. Player wins round ${roundCounter}`;
-        roundCounter+=1;
     }else{
-        console.log("You lost");
+        
         computerCount+=1;
-        computerCounter.textContent = computerCount;
         messageWin.textContent  = `Computer chose ${computerChoice}. Player loses round ${roundCounter}`;
-        roundCounter+=1;
     }
+
+    playerCounter.textContent = playerCount;
+    computerCounter.textContent = computerCount;
+
+    roundCounter++;
     roundCounterP.textContent = roundCounter;
+    
     decideWinnerAfterFiveRound();
     
     
@@ -71,8 +73,8 @@ function playRound(humanChoice,computerChoice){
 
 
 
- function decideWinnerAfterFiveRound(){
-        if (roundCounter > 5){
+function decideWinnerAfterFiveRound(){
+        if (roundCounter == 5){
             if (playerCount > computerCount){
                 messageWin.textContent = "Game ends: Player wins the game"
             }else if (playerCount < computerCount){
